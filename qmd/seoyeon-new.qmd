@@ -74,150 +74,14 @@ from nycflights13 import flights, planes, weather
 
 ## 분석 목표 {data-background-image="assets/bg.png"}
 
-## 1. 시간대별 지연 분석 {data-background-image="assets/bg.png"}
-
-```{python}
-#| code-fold: false
-#| echo: true
-def divide_hour(hour):
-    if 6 <= hour < 12:
-        return 'morning'
-    if 12 <= hour < 18:
-        return 'lunch'
-    if 18 <= hour < 24:
-        return 'dinner'
-    return 'dawn'
-
-flights['time_of_day'] = flights['hour'].apply(divide_hour)
-result = flights.loc[:, ['hour', 'time_of_day']].head(3)
-```
-
-::::::: columns
-:::: {.column width="50%"}
-::: {style="padding-bottom: 1rem;"}
--   설명: 출발 시간을 시간대별로 분류
--   분류 기준: 새벽, 아침, 점심, 저녁
--   [목적: 각 시간대별 지연 패턴 분석]{style="color: #ef4444"}
-:::
-::::
-
-:::: {.column width="50%"}
-::: {style="padding-top: 2rem;"}
-```{python}
-print(result)
-```
-:::
-::::
-:::::::
-
-## 1. 시간대별 지연 분석 {data-background-image="assets/bg.png"}
-
-:::::: columns
-::: {.column width="50%"}
-```{python}
-#| eval: false
-#| echo: true
-times = flights.groupby(['time_of_day']).size()
-plt.bar(['dawn', 'morning', 'lunch', 'dinner'], 
-        times.values[[0, 3, 2, 1]])
-plt.xlabel('time')
-plt.ylabel('flights')
-plt.title('flights by time')
-plt.show()
-```
-:::
-
-:::: {.column width="50%"}
-::: {style="padding-top: 0px; padding-left: 2rem;"}
-```{python}
-#| eval: true
-#| echo: false
-times = flights.groupby(['time_of_day']).size()
-plt.figure(figsize=(5, 3))
-plt.bar(['dawn', 'morning', 'lunch', 'dinner'], 
-        times.values[[0, 3, 2, 1]])
-plt.xlabel('time')
-plt.ylabel('flights')
-plt.title('flights by time')
-plt.show()
-```
-
-<li>새벽에는 항공편 수가 거의 X</li>
-
-<li>아침과 점심에 가장 많음</li>
-
-<li>저녁시간에는 항공편 수 감소</li>
-:::
-::::
-
-<p style="margin-top: 5rem;">
-
--   [아침, 점심에 지연이 많겠지?]{style="color: #ef4444; font-style: italic;"}
-
-</p>
-::::::
-
-## 1. 시간대별 지연 분석 {data-background-image="assets/bg.png"}
-
-<h6 style="font-size:26px; padding-top: 0px; color: #374151 !important;">
-
-15분 이상 지연된 비행기들 살펴보기
-
-</h6>
-
-::::: columns
-::: {.column width="50%"}
-```{python}
-#| code-fold: true
-#| echo: true
-colors = ["#a1a1aa", "#FF9999","#a1a1aa", "#FF9999"]
-times = flights.groupby(['time_of_day']).size()
-plt.figure(figsize=(5, 3))
-plt.bar(['dawn', 'morning', 'lunch', 'dinner'], 
-        times.values[[0, 3, 2, 1]],
-        color=colors)
-plt.xlabel('time')
-plt.ylabel('flights')
-plt.title('flights by time')
-plt.show()
-```
-
-<li>[비행편 수]{style="margin-left: 2rem;"}</li>
-:::
-
-::: {.column width="50%"}
-```{python}
-#| code-fold: true
-#| echo: true
-
-# 15분 이상 지연된 비행기들
-delayed = flights.loc[flights['dep_delay'] >= 15, :]
-
-# 지연된 비행기 시간대별로 분류
-delay_cnt = delayed.groupby('time_of_day').size()
-plt.figure(figsize=(5, 3))
-plt.bar(['dawn', 'morning', 'lunch', 'dinner'],
-       delay_cnt.values[[0, 3, 2, 1]],
-       color=colors)
-plt.xlabel('time')
-plt.ylabel('delayed flights')
-plt.title('delay by time')
-plt.show()
-```
-
-<li>[지연된 비행기 수]{style="margin-left: 2rem;"}</li>
-:::
-
--   [ㅇㅇㅇㅇ]{style="position: absolute; top: 100;"}
-:::::
 
 ## 항공기 특성 분석
 
 ## 1. 엔진 개수와 좌석수의 관계 {data-background-image="assets/bg.png"}
 
--   **가설: 엔진 개수가 많을수록 여객기가 크고, 좌석수가 많아질 것이다**
+### 가설: 엔진 개수가 많을수록, <br> 좌석수가 많아질 것이다
 
-### 1️⃣​ 엔진 개수`engines`별 평균 좌석수`seats` 확인하기
+## 1️⃣​ 엔진 개수`engines`별<br> 평균 좌석수`seats` 확인하기 {data-background-image="assets/bg.png"}
 
 ```{python}
 #| code-fold: false
@@ -230,7 +94,7 @@ engines_seats
 
 ------------------------------------------------------------------------
 
-### 1️⃣-2​ 꺾은선 그래프로 시각화 {data-background-image="assets/bg.png"}
+## 1️⃣-2​ 꺾은선 그래프로 시각화 {data-background-image="assets/bg.png"}
 
 :::::: columns
 ::: {.column width="50%"}
@@ -291,22 +155,23 @@ plt.show()
 
 ------------------------------------------------------------------------
 
-### 1️⃣-2​ 꺾은선 그래프로 시각화 {data-background-image="assets/bg.png"}
+## 1️⃣-2​ 꺾은선 그래프로 시각화 {data-background-image="assets/bg.png"}
 
 :::::: columns
 ::: {.column width="50%"}
--   꺾은선 그래프에서 엔진 개수가 4개일 때 좌석 수가 급감↘️​하는 패턴
 
--   특정 값들의 영향을 받은 건지 원래 이런 패턴인지 확인해볼 필요가 있음
-
--   `박스 플롯(Box Plot)`으로 좌석 수의 분포를 살펴보자!
+<li>꺾은선 그래프에서 엔진 개수가 4개일 때 좌석 수가 급감↘️​하는 패턴</li>
+<br>
+<li>특정 값들의 영향을 받은 건지 원래 이런 패턴인지 확인해볼 필요가 있음</li>
+<br>
+<li>`박스 플롯(Box Plot)`으로 좌석 수의 분포를 살펴보자!</li>
 :::
 
 :::: {.column width="50%"}
 ::: {style="padding-top: 0px; padding-left: 2rem;"}
 ```{python}
-#| eval: false
-#| echo: true
+#| eval: true
+#| echo: false
 import matplotlib.pyplot as plt
 
 plt.figure(figsize=(5, 5))
@@ -338,7 +203,7 @@ plt.show()
 
 ------------------------------------------------------------------------
 
-### 2️⃣​ 박스 플롯으로 엔진 개수별 분포 확인 {data-background-image="assets/bg.png"}
+## 2️⃣​ 박스플롯으로 분포 확인 {data-background-image="assets/bg.png"}
 
 ::::: columns
 ::: {.column width="50%" style="margin-top: 15px;"}
@@ -356,9 +221,7 @@ plt.grid(axis="y", linestyle="--", alpha=0.7)
 plt.show()
 ```
 
--   엔진 개수가 3개, 4개일 때 박스플롯의 형태가 이상함
-
-    -   
+<li>엔진 개수가 3개, 4개일 때 박스플롯 형태가 이상함</li>
 
 <li>왜 이렇게 나타나는지, `산점도(Scatter Plot)`를 추가해 개별 데이터 분포를 더 자세히 확인해보자!</li>
 :::
@@ -381,7 +244,7 @@ plt.show()
 
 ------------------------------------------------------------------------
 
-### 2️⃣-2​ 박스 플롯에 스캐터 플롯 추가 {data-background-image="assets/bg.png"}
+## 2️⃣-2​ 박스플롯에 스캐터플롯 추가 {data-background-image="assets/bg.png"}
 
 ::::: columns
 ::: {.column width="50%" style="margin-top: 15px;"}
@@ -438,31 +301,70 @@ plt.show()
 
 ------------------------------------------------------------------------
 
-### 2️⃣-3​ 박스 플롯, 스캐터 플롯 해석하기 {data-background-image="assets/bg.png"}
 
-#### ✅ 엔진 3개, 4개에서 박스플롯이 이상하게 보인 이유
+## 2️⃣-3​ 박스플롯, 스캐터플롯 해석 {data-background-image="assets/bg.png"}
+::::: columns
+::: {.column width="50%" style="margin-top: 0px;"}
 
-#### ✅ 엔진 3개, 4개에서 박스플롯이 이상하게 보인 이유
+```{python}
+#| eval: true
+#| echo: true
+
+data[data["engines"] == 3]["seats"].describe()
+```
+
+- 데이터 개수가 너무 적어서 <br> 사분위수를 나누기 어려움
+- 중앙값(50%)가 12명, <br> 75%는 379명, 평균은 169명
+- 데이터가 극단적으로 나뉘어 있음 (12명 vs. 379명)
+
+:::
+
+::: {.column width="50%"}
+
+```{python}
+#| eval: true
+#| echo: false
+
+plt.figure(figsize=(6, 5))
+sns.boxplot(x="engines", y="seats", data=data, hue="engines", palette="Blues", width=0.5)
+
+# 엔진 3개, 4개짜리만 따로 필터링해서 산점도 추가
+sns.stripplot(x="engines", y="seats",
+            data=data[(data["engines"] >= 3)], 
+            color="red", alpha=0.5,
+            jitter=0.1, size=6)
+            ## jitter: x값이 같은 데이터를 한 줄로 표시
+
+# 라벨 & 스타일 설정
+plt.xlabel("Number of Engines")
+plt.ylabel("Seats")
+plt.title("Seats Distribution by Number of Engines")
+plt.grid(axis="y", linestyle="--", alpha=0.7)
+
+plt.show()
+```
+
+:::
+:::::
+
+
+------------------------------------------------------------------------
+
+## 2️⃣-3​ 박스플롯, 스캐터플롯 해석 {data-background-image="assets/bg.png"}
 
 ::::: columns
 ::: {.column width="50%" style="margin-top: 15px;"}
--   ✅ 엔진 3개, 4개에서 박스플롯이 이상하게 보인 이유
 
-    -   데이터 개수가 너무 적어서 사분위수를 나누기 어려움
+```{python}
+#| eval: true
+#| echo: true
+data[data["engines"] == 4]["seats"].describe()
+```
 
-        -   박스가 생성되지 않고, 데이터가 선처럼 보임
+- 박스가 예상보다 아래쪽에 위치해있음 (0~100명)
+- 일부 이상치(378명, 450명)가 따로 표시됨
+- 50%가 2명 항공기이고, 102명 항공기가 나머지 25% 차지
 
-    -   
-
--   엔진 3개 : 좌석 수 400명 넘는 항공기 vs 0\~10명짜리 항공기 같이 존재
-
-    -   극단적인 차이!
-
--   엔진 4개 : 처음 가설(엔진 수가 많을수록 좌석수가 많다)에 따르면 박스플롯이 위쪽에 분포해 있어야 되는데,
-
-    박스플롯이 예상보다 아래쪽에 위치함 (좌석수의 중앙값과 대부분의 데이터가 0-100명에 집중됨)
-
-    산점도를 보면 0-10명 규모, 100명 규모, 380명 규모에 몰려있음
 :::
 
 ::: {.column width="50%"}
@@ -490,3 +392,45 @@ plt.show()
 ```
 :::
 :::::
+
+
+
+------------------------------------------------------------------------
+
+## 3️⃣​ 왜 예상과 다를까? {data-background-image="assets/bg.png"}
+
+```{python}
+#| eval: true
+#| echo: true
+
+data.loc[
+    (data['engines'] >= 3) & (data['seats'] <= 120), 
+    ['engines', 'manufacturer', 'model', 'seats']
+].drop_duplicates(subset=['model'])
+
+
+```
+
+------------------------------------------------------------------------
+
+## 3️⃣​ 왜 예상과 다를까? {data-background-image="assets/bg.png"}
+
+::: {.panel-tabset style="font-size: 2px;"}
+### MYSTERE FALCON 900
+![](falcon900.jpg){width=1000}
+
+### CF-5D
+![](cf5d.jpg){width=1000}
+
+### DC-7BF
+![](dc7bf.jpg){width=900}
+:::
+
+
+------------------------------------------------------------------------
+
+## 💡 엔진 개수와 좌석수의 관계 {data-background-image="assets/bg.png"}
+
+#### 가설: 엔진 개수가 많을수록 좌석수가 많아질 것이다
+
+#### ➡️ "엔진 개수가 많다고 꼭 좌석이 많아지는 건 아니고, <br> 특수한 용도의 항공기 (화물기, 군용기, VIP기 등)가 존재!"

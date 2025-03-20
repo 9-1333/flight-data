@@ -60,7 +60,285 @@ from nycflights13 import flights, planes, weather
 ---
 
 
-## 제목을 입력해주세요 {data-background-image="assets/bg.png"}
+## 항공기 특성 분석
+
+## 1. 엔진 개수와 좌석수의 관계 {data-background-image="assets/bg.png"}
+
+-   **가설: 엔진 개수가 많을수록 여객기가 크고, 좌석수가 많아질 것이다**
+
+### 1️⃣​ 엔진 개수`engines`별 평균 좌석수`seats` 확인하기
+
+```{python}
+#| code-fold: false
+#| echo: true
+data = pd.merge(flights, planes, on = "tailnum", how = "left")
+
+engines_seats = data.groupby('engines')['seats'].mean()
+engines_seats
+```
+
+------------------------------------------------------------------------
+
+### 1️⃣-2​ 꺾은선 그래프로 시각화 {data-background-image="assets/bg.png"}
+
+:::::: columns
+::: {.column width="50%"}
+```{python}
+#| eval: false
+#| echo: true
+
+# 꺾은선 그래프 그리기
+plt.figure(figsize=(5, 5))
+plt.plot(engines_seats.index, engines_seats.values,
+        marker='o', linestyle='-', color='b')
+
+# 각 점에 라벨 추가
+for x, y in engines_seats.items():
+    plt.text(x + (0.1 if x == 1.0 else -0.4), y,
+           ## 엔진 한 개일 때는 x+0.1 좌표에
+           ## 나머지는 x-0.4 좌표에 위치
+           f"{y:.1f}", fontsize=10, color="black")
+
+# 축과 제목 설정
+plt.xticks(engines_seats.index) 
+plt.xlabel("Number of Engines")
+plt.ylabel("Average Seats")
+plt.title("Average Seats by Number of Engines")
+plt.grid(True, linestyle="--", alpha=0.7)
+
+plt.show()
+```
+:::
+
+:::: {.column width="50%"}
+::: {style="padding-top: 0px; padding-left: 2rem;"}
+```{python}
+#| eval: true
+#| echo: false
+# 꺾은선 그래프 그리기
+plt.figure(figsize=(5, 5))
+plt.plot(engines_seats.index, engines_seats.values, marker='o', linestyle='-', color='b')
+
+## 각 점에 라벨 추가
+for x, y in engines_seats.items():
+    plt.text(x + (0.1 if x == 1.0 else -0.4), y, f"{y:.1f}", fontsize=10, color="black")
+
+## 축과 제목 설정
+plt.xticks(engines_seats.index) 
+plt.xlabel("Number of Engines")
+plt.ylabel("Average Seats")
+plt.title("Average Seats by Number of Engines")
+plt.grid(True, linestyle="--", alpha=0.7)
+
+plt.show()
+
+
+```
+:::
+::::
+::::::
+
+------------------------------------------------------------------------
+
+### 1️⃣-2​ 꺾은선 그래프로 시각화 {data-background-image="assets/bg.png"}
+
+:::::: columns
+::: {.column width="50%"}
+-   꺾은선 그래프에서 엔진 개수가 4개일 때 좌석 수가 급감↘️​하는 패턴
+
+-   특정 값들의 영향을 받은 건지 원래 이런 패턴인지 확인해볼 필요가 있음
+
+-   `박스 플롯(Box Plot)`으로 좌석 수의 분포를 살펴보자!
+:::
+
+:::: {.column width="50%"}
+::: {style="padding-top: 0px; padding-left: 2rem;"}
+```{python}
+#| eval: false
+#| echo: true
+import matplotlib.pyplot as plt
+
+plt.figure(figsize=(5, 5))
+plt.plot(engines_seats.index, engines_seats.values, marker='o', linestyle='-', color='b')
+
+# 각 점에 라벨 추가 (엔진 4개는 빨간색 강조)
+for x, y in engines_seats.items():
+    color = "red" if x == 4 else "black"  # 엔진 4개일 때 빨간색
+    ha = 'left' if x == 1.0 else 'right'
+    plt.text(x + (0.1 if x == 1.0 else -0.4), y, f"{y:.1f}", fontsize=10, color=color)
+
+# 배경 강조 (엔진 4개 주변)
+plt.axvspan(3.35, 4.0, color='red', alpha=0.15)
+
+# 축과 제목 설정
+plt.xticks(engines_seats.index)
+plt.xlabel("Number of Engines")
+plt.ylabel("Average Seats")
+plt.title("Average Seats by Number of Engines")
+plt.grid(True, linestyle="--", alpha=0.7)
+
+plt.show()
+
+
+```
+:::
+::::
+::::::
+
+------------------------------------------------------------------------
+
+### 2️⃣​ 박스 플롯으로 엔진 개수별 분포 확인 {data-background-image="assets/bg.png"}
+
+::::: columns
+::: {.column width="50%" style="margin-top: 15px;"}
+```{python}
+#| eval: false
+#| echo: true
+
+plt.figure(figsize=(6, 5))
+sns.boxplot(x="engines", y="seats", data=data,
+       hue="engines", palette="Blues", width=0.5)
+plt.xlabel("Number of Engines")
+plt.ylabel("Seats")
+plt.title("Seats Distribution by Number of Engines")
+plt.grid(axis="y", linestyle="--", alpha=0.7)
+plt.show()
+```
+
+-   엔진 개수가 3개, 4개일 때 박스플롯의 형태가 이상함
+
+    -   
+
+<li>왜 이렇게 나타나는지, `산점도(Scatter Plot)`를 추가해 개별 데이터 분포를 더 자세히 확인해보자!</li>
+:::
+
+::: {.column width="50%"}
+```{python}
+#| eval: true
+#| echo: false
+
+plt.figure(figsize=(6, 5))
+sns.boxplot(x="engines", y="seats", data=data, hue="engines", palette="Blues", width=0.5)
+plt.xlabel("Number of Engines")
+plt.ylabel("Seats")
+plt.title("Seats Distribution by Number of Engines")
+plt.grid(axis="y", linestyle="--", alpha=0.7)
+plt.show()
+```
+:::
+:::::
+
+------------------------------------------------------------------------
+
+### 2️⃣-2​ 박스 플롯에 스캐터 플롯 추가 {data-background-image="assets/bg.png"}
+
+::::: columns
+::: {.column width="50%" style="margin-top: 15px;"}
+```{python}
+#| eval: false
+#| echo: true
+
+plt.figure(figsize=(6, 5))
+sns.boxplot(x="engines", y="seats", data=data,
+       hue="engines", palette="Blues", width=0.5)
+
+# 엔진 3개, 4개짜리만 따로 필터링해서 산점도 추가
+sns.stripplot(x="engines", y="seats",
+            data=data[(data["engines"] >= 3)], 
+            color="red", alpha=0.5,
+            jitter=0.1, size=6)
+            ## jitter: x값이 같은 데이터를 한 줄로 표시
+
+# 라벨 & 스타일 설정
+plt.xlabel("Number of Engines")
+plt.ylabel("Seats")
+plt.title("Seats Distribution by Number of Engines")
+plt.grid(axis="y", linestyle="--", alpha=0.7)
+
+plt.show()
+```
+:::
+
+::: {.column width="50%"}
+```{python}
+#| eval: true
+#| echo: false
+
+plt.figure(figsize=(6, 5))
+sns.boxplot(x="engines", y="seats", data=data, hue="engines", palette="Blues", width=0.5)
+
+# 엔진 3개, 4개짜리만 따로 필터링해서 산점도 추가
+sns.stripplot(x="engines", y="seats",
+            data=data[(data["engines"] >= 3)], 
+            color="red", alpha=0.5,
+            jitter=0.1, size=6)
+            ## jitter: x값이 같은 데이터를 한 줄로 표시
+
+# 라벨 & 스타일 설정
+plt.xlabel("Number of Engines")
+plt.ylabel("Seats")
+plt.title("Seats Distribution by Number of Engines")
+plt.grid(axis="y", linestyle="--", alpha=0.7)
+
+plt.show()
+```
+:::
+:::::
+
+------------------------------------------------------------------------
+
+### 2️⃣-3​ 박스 플롯, 스캐터 플롯 해석하기 {data-background-image="assets/bg.png"}
+
+#### ✅ 엔진 3개, 4개에서 박스플롯이 이상하게 보인 이유
+
+#### ✅ 엔진 3개, 4개에서 박스플롯이 이상하게 보인 이유
+
+::::: columns
+::: {.column width="50%" style="margin-top: 15px;"}
+-   ✅ 엔진 3개, 4개에서 박스플롯이 이상하게 보인 이유
+
+    -   데이터 개수가 너무 적어서 사분위수를 나누기 어려움
+
+        -   박스가 생성되지 않고, 데이터가 선처럼 보임
+
+    -   
+
+-   엔진 3개 : 좌석 수 400명 넘는 항공기 vs 0\~10명짜리 항공기 같이 존재
+
+    -   극단적인 차이!
+
+-   엔진 4개 : 처음 가설(엔진 수가 많을수록 좌석수가 많다)에 따르면 박스플롯이 위쪽에 분포해 있어야 되는데,
+
+    박스플롯이 예상보다 아래쪽에 위치함 (좌석수의 중앙값과 대부분의 데이터가 0-100명에 집중됨)
+
+    산점도를 보면 0-10명 규모, 100명 규모, 380명 규모에 몰려있음
+:::
+
+::: {.column width="50%"}
+```{python}
+#| eval: true
+#| echo: false
+
+plt.figure(figsize=(6, 5))
+sns.boxplot(x="engines", y="seats", data=data, hue="engines", palette="Blues", width=0.5)
+
+# 엔진 3개, 4개짜리만 따로 필터링해서 산점도 추가
+sns.stripplot(x="engines", y="seats",
+            data=data[(data["engines"] >= 3)], 
+            color="red", alpha=0.5,
+            jitter=0.1, size=6)
+            ## jitter: x값이 같은 데이터를 한 줄로 표시
+
+# 라벨 & 스타일 설정
+plt.xlabel("Number of Engines")
+plt.ylabel("Seats")
+plt.title("Seats Distribution by Number of Engines")
+plt.grid(axis="y", linestyle="--", alpha=0.7)
+
+plt.show()
+```
+:::
+:::::
 
 
 

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="ppt_files/libs/clipboard/clipboard.min.js"></script>
-<script src="ppt_files/libs/quarto-html/tabby.min.js"></script>
-<script src="ppt_files/libs/quarto-html/popper.min.js"></script>
-<script src="ppt_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="ppt_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="ppt_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="ppt_files/libs/quarto-html/quarto-syntax-highlighting-fdada01b6a4a613316abf06c0f7ea711.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="seoyeon-new_files/libs/clipboard/clipboard.min.js"></script>
+<script src="seoyeon-new_files/libs/quarto-html/tabby.min.js"></script>
+<script src="seoyeon-new_files/libs/quarto-html/popper.min.js"></script>
+<script src="seoyeon-new_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="seoyeon-new_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="seoyeon-new_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="seoyeon-new_files/libs/quarto-html/quarto-syntax-highlighting-fdada01b6a4a613316abf06c0f7ea711.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.6.42">
 
   <meta name="author" content="7조">
@@ -14,8 +14,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="ppt_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="ppt_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="seoyeon-new_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="seoyeon-new_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -94,12 +94,12 @@
     code span.vs { color: #98971a; } /* VerbatimString */
     code span.wa { color: #282828; background-color: #fabd2f; } /* Warning */
   </style>
-  <link rel="stylesheet" href="ppt_files/libs/revealjs/dist/theme/quarto-2f366650f320edcfcf53d73c80250a32.css">
+  <link rel="stylesheet" href="seoyeon-new_files/libs/revealjs/dist/theme/quarto-2f366650f320edcfcf53d73c80250a32.css">
   <link rel="stylesheet" href="styles.css">
-  <link href="ppt_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="ppt_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="ppt_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="ppt_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link href="seoyeon-new_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="seoyeon-new_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="seoyeon-new_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="seoyeon-new_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
@@ -187,6 +187,9 @@
       margin-right: 0; 
     }
   </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+  
+  <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -251,163 +254,21 @@
 <section id="분석-목표" class="slide level2" data-background-image="assets/bg.png">
 <h2>분석 목표</h2>
 </section>
-<section id="시간대별-지연-분석" class="slide level2" data-background-image="assets/bg.png">
-<h2>1. 시간대별 지연 분석</h2>
-<div id="b994e1b0" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="kw">def</span> divide_hour(hour):</span>
-<span id="cb1-2"><a href=""></a>    <span class="cf">if</span> <span class="dv">6</span> <span class="op">&lt;=</span> hour <span class="op">&lt;</span> <span class="dv">12</span>:</span>
-<span id="cb1-3"><a href=""></a>        <span class="cf">return</span> <span class="st">'morning'</span></span>
-<span id="cb1-4"><a href=""></a>    <span class="cf">if</span> <span class="dv">12</span> <span class="op">&lt;=</span> hour <span class="op">&lt;</span> <span class="dv">18</span>:</span>
-<span id="cb1-5"><a href=""></a>        <span class="cf">return</span> <span class="st">'lunch'</span></span>
-<span id="cb1-6"><a href=""></a>    <span class="cf">if</span> <span class="dv">18</span> <span class="op">&lt;=</span> hour <span class="op">&lt;</span> <span class="dv">24</span>:</span>
-<span id="cb1-7"><a href=""></a>        <span class="cf">return</span> <span class="st">'dinner'</span></span>
-<span id="cb1-8"><a href=""></a>    <span class="cf">return</span> <span class="st">'dawn'</span></span>
-<span id="cb1-9"><a href=""></a></span>
-<span id="cb1-10"><a href=""></a>flights[<span class="st">'time_of_day'</span>] <span class="op">=</span> flights[<span class="st">'hour'</span>].<span class="bu">apply</span>(divide_hour)</span>
-<span id="cb1-11"><a href=""></a>result <span class="op">=</span> flights.loc[:, [<span class="st">'hour'</span>, <span class="st">'time_of_day'</span>]].head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div style="padding-bottom: 1rem;">
-<ul>
-<li class="fragment">설명: 출발 시간을 시간대별로 분류</li>
-<li class="fragment">분류 기준: 새벽, 아침, 점심, 저녁</li>
-<li class="fragment"><span style="color: #ef4444">목적: 각 시간대별 지연 패턴 분석</span></li>
-</ul>
-</div>
-</div><div class="column" style="width:50%;">
-<div style="padding-top: 2rem;">
-<div id="f52b69ee" class="cell" data-execution_count="3">
-<div class="cell-output cell-output-stdout">
-<pre><code>   hour time_of_day
-0     5        dawn
-1     5        dawn
-2     5        dawn</code></pre>
-</div>
-</div>
-</div>
-</div></div>
-</section>
-<section id="시간대별-지연-분석-1" class="slide level2" data-background-image="assets/bg.png">
-<h2>1. 시간대별 지연 분석</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div id="53111347" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a>times <span class="op">=</span> flights.groupby([<span class="st">'time_of_day'</span>]).size()</span>
-<span id="cb3-2"><a href=""></a>plt.bar([<span class="st">'dawn'</span>, <span class="st">'morning'</span>, <span class="st">'lunch'</span>, <span class="st">'dinner'</span>], </span>
-<span id="cb3-3"><a href=""></a>        times.values[[<span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>]])</span>
-<span id="cb3-4"><a href=""></a>plt.xlabel(<span class="st">'time'</span>)</span>
-<span id="cb3-5"><a href=""></a>plt.ylabel(<span class="st">'flights'</span>)</span>
-<span id="cb3-6"><a href=""></a>plt.title(<span class="st">'flights by time'</span>)</span>
-<span id="cb3-7"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div><div class="column" style="width:50%;">
-<div style="padding-top: 0px; padding-left: 2rem;">
-<div id="0b4faff5" class="cell" data-execution_count="5">
-<div class="cell-output cell-output-display">
-<div>
-<figure>
-<p><img data-src="ppt_files/figure-revealjs/cell-6-output-1.png" width="470" height="302"></p>
-</figure>
-</div>
-</div>
-</div>
-<li>
-새벽에는 항공편 수가 거의 X
-</li>
-<li>
-아침과 점심에 가장 많음
-</li>
-<li>
-저녁시간에는 항공편 수 감소
-</li>
-</div>
-</div><p style="margin-top: 5rem;"></p><ul>
-<li class="fragment"><span style="color: #ef4444; font-style: italic;">아침, 점심에 지연이 많겠지?</span></li>
-</ul><p></p>
-</div>
-</section>
-<section id="시간대별-지연-분석-2" class="slide level2" data-background-image="assets/bg.png">
-<h2>1. 시간대별 지연 분석</h2>
-<h6 style="font-size:26px; padding-top: 0px; color: #374151 !important;">
-<p>15분 이상 지연된 비행기들 살펴보기</p>
-</h6>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div id="3e75ff3a" class="cell" data-execution_count="6">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a>colors <span class="op">=</span> [<span class="st">"#a1a1aa"</span>, <span class="st">"#FF9999"</span>,<span class="st">"#a1a1aa"</span>, <span class="st">"#FF9999"</span>]</span>
-<span id="cb4-2"><a href=""></a>times <span class="op">=</span> flights.groupby([<span class="st">'time_of_day'</span>]).size()</span>
-<span id="cb4-3"><a href=""></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">3</span>))</span>
-<span id="cb4-4"><a href=""></a>plt.bar([<span class="st">'dawn'</span>, <span class="st">'morning'</span>, <span class="st">'lunch'</span>, <span class="st">'dinner'</span>], </span>
-<span id="cb4-5"><a href=""></a>        times.values[[<span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>]],</span>
-<span id="cb4-6"><a href=""></a>        color<span class="op">=</span>colors)</span>
-<span id="cb4-7"><a href=""></a>plt.xlabel(<span class="st">'time'</span>)</span>
-<span id="cb4-8"><a href=""></a>plt.ylabel(<span class="st">'flights'</span>)</span>
-<span id="cb4-9"><a href=""></a>plt.title(<span class="st">'flights by time'</span>)</span>
-<span id="cb4-10"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display">
-<div>
-<figure>
-<p><img data-src="ppt_files/figure-revealjs/cell-7-output-1.png" width="470" height="302"></p>
-</figure>
-</div>
-</div>
-</div>
-<li>
-<span style="margin-left: 2rem;">비행편 수</span>
-</li>
-</div><div class="column" style="width:50%;">
-<div id="95f103c8" class="cell" data-execution_count="7">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a><span class="co"># 15분 이상 지연된 비행기들</span></span>
-<span id="cb5-2"><a href=""></a>delayed <span class="op">=</span> flights.loc[flights[<span class="st">'dep_delay'</span>] <span class="op">&gt;=</span> <span class="dv">15</span>, :]</span>
-<span id="cb5-3"><a href=""></a></span>
-<span id="cb5-4"><a href=""></a><span class="co"># 지연된 비행기 시간대별로 분류</span></span>
-<span id="cb5-5"><a href=""></a>delay_cnt <span class="op">=</span> delayed.groupby(<span class="st">'time_of_day'</span>).size()</span>
-<span id="cb5-6"><a href=""></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">3</span>))</span>
-<span id="cb5-7"><a href=""></a>plt.bar([<span class="st">'dawn'</span>, <span class="st">'morning'</span>, <span class="st">'lunch'</span>, <span class="st">'dinner'</span>],</span>
-<span id="cb5-8"><a href=""></a>       delay_cnt.values[[<span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>]],</span>
-<span id="cb5-9"><a href=""></a>       color<span class="op">=</span>colors)</span>
-<span id="cb5-10"><a href=""></a>plt.xlabel(<span class="st">'time'</span>)</span>
-<span id="cb5-11"><a href=""></a>plt.ylabel(<span class="st">'delayed flights'</span>)</span>
-<span id="cb5-12"><a href=""></a>plt.title(<span class="st">'delay by time'</span>)</span>
-<span id="cb5-13"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display">
-<div>
-<figure>
-<p><img data-src="ppt_files/figure-revealjs/cell-8-output-1.png" width="461" height="302"></p>
-</figure>
-</div>
-</div>
-</div>
-<li>
-<span style="margin-left: 2rem;">지연된 비행기 수</span>
-</li>
-</div><ul>
-<li class="fragment"><span style="position: absolute; top: 100;">ㅇㅇㅇㅇ</span></li>
-</ul>
-</div>
-</section>
 <section id="항공기-특성-분석" class="slide level2">
 <h2>항공기 특성 분석</h2>
 </section>
 <section id="엔진-개수와-좌석수의-관계" class="slide level2" data-background-image="assets/bg.png">
 <h2>1. 엔진 개수와 좌석수의 관계</h2>
-<ul>
-<li class="fragment"><strong>가설: 엔진 개수가 많을수록 여객기가 크고, 좌석수가 많아질 것이다</strong></li>
-</ul>
-<h3 id="엔진-개수engines별-평균-좌석수seats-확인하기">1️⃣​ 엔진 개수<code>engines</code>별 평균 좌석수<code>seats</code> 확인하기</h3>
-<div id="2da01368" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a>data <span class="op">=</span> pd.merge(flights, planes, on <span class="op">=</span> <span class="st">"tailnum"</span>, how <span class="op">=</span> <span class="st">"left"</span>)</span>
-<span id="cb6-2"><a href=""></a></span>
-<span id="cb6-3"><a href=""></a>engines_seats <span class="op">=</span> data.groupby(<span class="st">'engines'</span>)[<span class="st">'seats'</span>].mean()</span>
-<span id="cb6-4"><a href=""></a>engines_seats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
+<h3 id="가설-엔진-개수가-많을수록-좌석수가-많아질-것이다">가설: 엔진 개수가 많을수록, <br> 좌석수가 많아질 것이다</h3>
+</section>
+<section id="엔진-개수engines별-평균-좌석수seats-확인하기" class="slide level2" data-background-image="assets/bg.png">
+<h2>1️⃣​ 엔진 개수<code>engines</code>별<br> 평균 좌석수<code>seats</code> 확인하기</h2>
+<div id="259dd073" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a>data <span class="op">=</span> pd.merge(flights, planes, on <span class="op">=</span> <span class="st">"tailnum"</span>, how <span class="op">=</span> <span class="st">"left"</span>)</span>
+<span id="cb1-2"><a href=""></a></span>
+<span id="cb1-3"><a href=""></a>engines_seats <span class="op">=</span> data.groupby(<span class="st">'engines'</span>)[<span class="st">'seats'</span>].mean()</span>
+<span id="cb1-4"><a href=""></a>engines_seats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="222">
 <pre><code>engines
 1.0      4.202085
 2.0    137.699754
@@ -417,40 +278,39 @@ Name: seats, dtype: float64</code></pre>
 </div>
 </div>
 </section>
-<section class="slide level2">
-
-<h3 data-background-image="assets/bg.png" id="꺾은선-그래프로-시각화">1️⃣-2​ 꺾은선 그래프로 시각화</h3>
+<section id="꺾은선-그래프로-시각화" class="slide level2" data-background-image="assets/bg.png">
+<h2>1️⃣-2​ 꺾은선 그래프로 시각화</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div id="7e296303" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a><span class="co"># 꺾은선 그래프 그리기</span></span>
-<span id="cb8-2"><a href=""></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">5</span>))</span>
-<span id="cb8-3"><a href=""></a>plt.plot(engines_seats.index, engines_seats.values,</span>
-<span id="cb8-4"><a href=""></a>        marker<span class="op">=</span><span class="st">'o'</span>, linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'b'</span>)</span>
-<span id="cb8-5"><a href=""></a></span>
-<span id="cb8-6"><a href=""></a><span class="co"># 각 점에 라벨 추가</span></span>
-<span id="cb8-7"><a href=""></a><span class="cf">for</span> x, y <span class="kw">in</span> engines_seats.items():</span>
-<span id="cb8-8"><a href=""></a>    plt.text(x <span class="op">+</span> (<span class="fl">0.1</span> <span class="cf">if</span> x <span class="op">==</span> <span class="fl">1.0</span> <span class="cf">else</span> <span class="op">-</span><span class="fl">0.4</span>), y,</span>
-<span id="cb8-9"><a href=""></a>           <span class="co">## 엔진 한 개일 때는 x+0.1 좌표에</span></span>
-<span id="cb8-10"><a href=""></a>           <span class="co">## 나머지는 x-0.4 좌표에 위치</span></span>
-<span id="cb8-11"><a href=""></a>           <span class="ss">f"</span><span class="sc">{</span>y<span class="sc">:.1f}</span><span class="ss">"</span>, fontsize<span class="op">=</span><span class="dv">10</span>, color<span class="op">=</span><span class="st">"black"</span>)</span>
-<span id="cb8-12"><a href=""></a></span>
-<span id="cb8-13"><a href=""></a><span class="co"># 축과 제목 설정</span></span>
-<span id="cb8-14"><a href=""></a>plt.xticks(engines_seats.index) </span>
-<span id="cb8-15"><a href=""></a>plt.xlabel(<span class="st">"Number of Engines"</span>)</span>
-<span id="cb8-16"><a href=""></a>plt.ylabel(<span class="st">"Average Seats"</span>)</span>
-<span id="cb8-17"><a href=""></a>plt.title(<span class="st">"Average Seats by Number of Engines"</span>)</span>
-<span id="cb8-18"><a href=""></a>plt.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">"--"</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
-<span id="cb8-19"><a href=""></a></span>
-<span id="cb8-20"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="22b48a8a" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="co"># 꺾은선 그래프 그리기</span></span>
+<span id="cb3-2"><a href=""></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">5</span>))</span>
+<span id="cb3-3"><a href=""></a>plt.plot(engines_seats.index, engines_seats.values,</span>
+<span id="cb3-4"><a href=""></a>        marker<span class="op">=</span><span class="st">'o'</span>, linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'b'</span>)</span>
+<span id="cb3-5"><a href=""></a></span>
+<span id="cb3-6"><a href=""></a><span class="co"># 각 점에 라벨 추가</span></span>
+<span id="cb3-7"><a href=""></a><span class="cf">for</span> x, y <span class="kw">in</span> engines_seats.items():</span>
+<span id="cb3-8"><a href=""></a>    plt.text(x <span class="op">+</span> (<span class="fl">0.1</span> <span class="cf">if</span> x <span class="op">==</span> <span class="fl">1.0</span> <span class="cf">else</span> <span class="op">-</span><span class="fl">0.4</span>), y,</span>
+<span id="cb3-9"><a href=""></a>           <span class="co">## 엔진 한 개일 때는 x+0.1 좌표에</span></span>
+<span id="cb3-10"><a href=""></a>           <span class="co">## 나머지는 x-0.4 좌표에 위치</span></span>
+<span id="cb3-11"><a href=""></a>           <span class="ss">f"</span><span class="sc">{</span>y<span class="sc">:.1f}</span><span class="ss">"</span>, fontsize<span class="op">=</span><span class="dv">10</span>, color<span class="op">=</span><span class="st">"black"</span>)</span>
+<span id="cb3-12"><a href=""></a></span>
+<span id="cb3-13"><a href=""></a><span class="co"># 축과 제목 설정</span></span>
+<span id="cb3-14"><a href=""></a>plt.xticks(engines_seats.index) </span>
+<span id="cb3-15"><a href=""></a>plt.xlabel(<span class="st">"Number of Engines"</span>)</span>
+<span id="cb3-16"><a href=""></a>plt.ylabel(<span class="st">"Average Seats"</span>)</span>
+<span id="cb3-17"><a href=""></a>plt.title(<span class="st">"Average Seats by Number of Engines"</span>)</span>
+<span id="cb3-18"><a href=""></a>plt.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">"--"</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb3-19"><a href=""></a></span>
+<span id="cb3-20"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:50%;">
 <div style="padding-top: 0px; padding-left: 2rem;">
-<div id="174db516" class="cell" data-execution_count="10">
+<div id="da15b2e7" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="ppt_files/figure-revealjs/cell-11-output-1.png" width="444" height="449"></p>
+<p><img data-src="seoyeon-new_files/figure-revealjs/cell-5-output-1.png" width="444" height="449"></p>
 </figure>
 </div>
 </div>
@@ -458,140 +318,256 @@ Name: seats, dtype: float64</code></pre>
 </div>
 </div></div>
 </section>
-<section class="slide level2">
-
-<h3 data-background-image="assets/bg.png" id="꺾은선-그래프로-시각화-1">1️⃣-2​ 꺾은선 그래프로 시각화</h3>
+<section id="꺾은선-그래프로-시각화-1" class="slide level2" data-background-image="assets/bg.png">
+<h2>1️⃣-2​ 꺾은선 그래프로 시각화</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<ul>
-<li class="fragment"><p>꺾은선 그래프에서 엔진 개수가 4개일 때 좌석 수가 급감↘️​하는 패턴</p></li>
-<li class="fragment"><p>특정 값들의 영향을 받은 건지 원래 이런 패턴인지 확인해볼 필요가 있음</p></li>
-<li class="fragment"><p><code>박스 플롯(Box Plot)</code>으로 좌석 수의 분포를 살펴보자!</p></li>
-</ul>
+<li>
+꺾은선 그래프에서 엔진 개수가 4개일 때 좌석 수가 급감↘️​하는 패턴
+</li>
+<br>
+<li>
+특정 값들의 영향을 받은 건지 원래 이런 패턴인지 확인해볼 필요가 있음
+</li>
+<br>
+<li>
+<code>박스 플롯(Box Plot)</code>으로 좌석 수의 분포를 살펴보자!
+</li>
 </div><div class="column" style="width:50%;">
 <div style="padding-top: 0px; padding-left: 2rem;">
-<div id="1d5d46b2" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb9-2"><a href=""></a></span>
-<span id="cb9-3"><a href=""></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">5</span>))</span>
-<span id="cb9-4"><a href=""></a>plt.plot(engines_seats.index, engines_seats.values, marker<span class="op">=</span><span class="st">'o'</span>, linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'b'</span>)</span>
-<span id="cb9-5"><a href=""></a></span>
-<span id="cb9-6"><a href=""></a><span class="co"># 각 점에 라벨 추가 (엔진 4개는 빨간색 강조)</span></span>
-<span id="cb9-7"><a href=""></a><span class="cf">for</span> x, y <span class="kw">in</span> engines_seats.items():</span>
-<span id="cb9-8"><a href=""></a>    color <span class="op">=</span> <span class="st">"red"</span> <span class="cf">if</span> x <span class="op">==</span> <span class="dv">4</span> <span class="cf">else</span> <span class="st">"black"</span>  <span class="co"># 엔진 4개일 때 빨간색</span></span>
-<span id="cb9-9"><a href=""></a>    ha <span class="op">=</span> <span class="st">'left'</span> <span class="cf">if</span> x <span class="op">==</span> <span class="fl">1.0</span> <span class="cf">else</span> <span class="st">'right'</span></span>
-<span id="cb9-10"><a href=""></a>    plt.text(x <span class="op">+</span> (<span class="fl">0.1</span> <span class="cf">if</span> x <span class="op">==</span> <span class="fl">1.0</span> <span class="cf">else</span> <span class="op">-</span><span class="fl">0.4</span>), y, <span class="ss">f"</span><span class="sc">{</span>y<span class="sc">:.1f}</span><span class="ss">"</span>, fontsize<span class="op">=</span><span class="dv">10</span>, color<span class="op">=</span>color)</span>
-<span id="cb9-11"><a href=""></a></span>
-<span id="cb9-12"><a href=""></a><span class="co"># 배경 강조 (엔진 4개 주변)</span></span>
-<span id="cb9-13"><a href=""></a>plt.axvspan(<span class="fl">3.35</span>, <span class="fl">4.0</span>, color<span class="op">=</span><span class="st">'red'</span>, alpha<span class="op">=</span><span class="fl">0.15</span>)</span>
-<span id="cb9-14"><a href=""></a></span>
-<span id="cb9-15"><a href=""></a><span class="co"># 축과 제목 설정</span></span>
-<span id="cb9-16"><a href=""></a>plt.xticks(engines_seats.index)</span>
-<span id="cb9-17"><a href=""></a>plt.xlabel(<span class="st">"Number of Engines"</span>)</span>
-<span id="cb9-18"><a href=""></a>plt.ylabel(<span class="st">"Average Seats"</span>)</span>
-<span id="cb9-19"><a href=""></a>plt.title(<span class="st">"Average Seats by Number of Engines"</span>)</span>
-<span id="cb9-20"><a href=""></a>plt.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">"--"</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
-<span id="cb9-21"><a href=""></a></span>
-<span id="cb9-22"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d0a4ae92" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="seoyeon-new_files/figure-revealjs/cell-6-output-1.png" width="444" height="449"></p>
+</figure>
+</div>
+</div>
 </div>
 </div>
 </div></div>
 </section>
-<section class="slide level2">
-
-<h3 data-background-image="assets/bg.png" id="박스-플롯으로-엔진-개수별-분포-확인">2️⃣​ 박스 플롯으로 엔진 개수별 분포 확인</h3>
+<section id="박스플롯으로-분포-확인" class="slide level2" data-background-image="assets/bg.png">
+<h2>2️⃣​ 박스플롯으로 분포 확인</h2>
 <div class="columns">
 <div class="column" style="margin-top: 15px;">
-<div id="c1e6d4b8" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">5</span>))</span>
-<span id="cb10-2"><a href=""></a>sns.boxplot(x<span class="op">=</span><span class="st">"engines"</span>, y<span class="op">=</span><span class="st">"seats"</span>, data<span class="op">=</span>data,</span>
-<span id="cb10-3"><a href=""></a>       hue<span class="op">=</span><span class="st">"engines"</span>, palette<span class="op">=</span><span class="st">"Blues"</span>, width<span class="op">=</span><span class="fl">0.5</span>)</span>
-<span id="cb10-4"><a href=""></a>plt.xlabel(<span class="st">"Number of Engines"</span>)</span>
-<span id="cb10-5"><a href=""></a>plt.ylabel(<span class="st">"Seats"</span>)</span>
-<span id="cb10-6"><a href=""></a>plt.title(<span class="st">"Seats Distribution by Number of Engines"</span>)</span>
-<span id="cb10-7"><a href=""></a>plt.grid(axis<span class="op">=</span><span class="st">"y"</span>, linestyle<span class="op">=</span><span class="st">"--"</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
-<span id="cb10-8"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="7a0550ad" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">5</span>))</span>
+<span id="cb4-2"><a href=""></a>sns.boxplot(x<span class="op">=</span><span class="st">"engines"</span>, y<span class="op">=</span><span class="st">"seats"</span>, data<span class="op">=</span>data,</span>
+<span id="cb4-3"><a href=""></a>       hue<span class="op">=</span><span class="st">"engines"</span>, palette<span class="op">=</span><span class="st">"Blues"</span>, width<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb4-4"><a href=""></a>plt.xlabel(<span class="st">"Number of Engines"</span>)</span>
+<span id="cb4-5"><a href=""></a>plt.ylabel(<span class="st">"Seats"</span>)</span>
+<span id="cb4-6"><a href=""></a>plt.title(<span class="st">"Seats Distribution by Number of Engines"</span>)</span>
+<span id="cb4-7"><a href=""></a>plt.grid(axis<span class="op">=</span><span class="st">"y"</span>, linestyle<span class="op">=</span><span class="st">"--"</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb4-8"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <li>
-엔진 개수가 3개, 4개일 때 박스플롯의 형태가 예상과 다름
+엔진 개수가 3개, 4개일 때 박스플롯 형태가 이상함
 </li>
 <li>
 왜 이렇게 나타나는지, <code>산점도(Scatter Plot)</code>를 추가해 개별 데이터 분포를 더 자세히 확인해보자!
 </li>
 </div><div class="column" style="width:50%;">
-<div id="62add7d8" class="cell" data-execution_count="13">
+<div id="f8ef8d89" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="ppt_files/figure-revealjs/cell-14-output-1.png" width="519" height="449"></p>
+<p><img data-src="seoyeon-new_files/figure-revealjs/cell-8-output-1.png" width="519" height="449"></p>
 </figure>
 </div>
 </div>
 </div>
 </div></div>
 </section>
-<section class="slide level2">
-
-<h3 data-background-image="assets/bg.png" id="박스-플롯에-스캐터-플롯-추가">2️⃣-2​ 박스 플롯에 스캐터 플롯 추가</h3>
+<section id="박스플롯에-스캐터플롯-추가" class="slide level2" data-background-image="assets/bg.png">
+<h2>2️⃣-2​ 박스플롯에 스캐터플롯 추가</h2>
 <div class="columns">
 <div class="column" style="margin-top: 15px;">
-<div id="21abaa9b" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">5</span>))</span>
-<span id="cb11-2"><a href=""></a>sns.boxplot(x<span class="op">=</span><span class="st">"engines"</span>, y<span class="op">=</span><span class="st">"seats"</span>, data<span class="op">=</span>data,</span>
-<span id="cb11-3"><a href=""></a>       hue<span class="op">=</span><span class="st">"engines"</span>, palette<span class="op">=</span><span class="st">"Blues"</span>, width<span class="op">=</span><span class="fl">0.5</span>)</span>
-<span id="cb11-4"><a href=""></a></span>
-<span id="cb11-5"><a href=""></a><span class="co"># 엔진 3개, 4개짜리만 따로 필터링해서 산점도 추가</span></span>
-<span id="cb11-6"><a href=""></a>sns.stripplot(x<span class="op">=</span><span class="st">"engines"</span>, y<span class="op">=</span><span class="st">"seats"</span>,</span>
-<span id="cb11-7"><a href=""></a>            data<span class="op">=</span>data[(data[<span class="st">"engines"</span>] <span class="op">&gt;=</span> <span class="dv">3</span>)], </span>
-<span id="cb11-8"><a href=""></a>            color<span class="op">=</span><span class="st">"red"</span>, alpha<span class="op">=</span><span class="fl">0.5</span>,</span>
-<span id="cb11-9"><a href=""></a>            jitter<span class="op">=</span><span class="fl">0.1</span>, size<span class="op">=</span><span class="dv">6</span>)</span>
-<span id="cb11-10"><a href=""></a>            <span class="co">## jitter: x값이 같은 데이터를 한 줄로 표시</span></span>
-<span id="cb11-11"><a href=""></a></span>
-<span id="cb11-12"><a href=""></a><span class="co"># 라벨 &amp; 스타일 설정</span></span>
-<span id="cb11-13"><a href=""></a>plt.xlabel(<span class="st">"Number of Engines"</span>)</span>
-<span id="cb11-14"><a href=""></a>plt.ylabel(<span class="st">"Seats"</span>)</span>
-<span id="cb11-15"><a href=""></a>plt.title(<span class="st">"Seats Distribution by Number of Engines"</span>)</span>
-<span id="cb11-16"><a href=""></a>plt.grid(axis<span class="op">=</span><span class="st">"y"</span>, linestyle<span class="op">=</span><span class="st">"--"</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
-<span id="cb11-17"><a href=""></a></span>
-<span id="cb11-18"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="177e49f2" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">5</span>))</span>
+<span id="cb5-2"><a href=""></a>sns.boxplot(x<span class="op">=</span><span class="st">"engines"</span>, y<span class="op">=</span><span class="st">"seats"</span>, data<span class="op">=</span>data,</span>
+<span id="cb5-3"><a href=""></a>       hue<span class="op">=</span><span class="st">"engines"</span>, palette<span class="op">=</span><span class="st">"Blues"</span>, width<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb5-4"><a href=""></a></span>
+<span id="cb5-5"><a href=""></a><span class="co"># 엔진 3개, 4개짜리만 따로 필터링해서 산점도 추가</span></span>
+<span id="cb5-6"><a href=""></a>sns.stripplot(x<span class="op">=</span><span class="st">"engines"</span>, y<span class="op">=</span><span class="st">"seats"</span>,</span>
+<span id="cb5-7"><a href=""></a>            data<span class="op">=</span>data[(data[<span class="st">"engines"</span>] <span class="op">&gt;=</span> <span class="dv">3</span>)], </span>
+<span id="cb5-8"><a href=""></a>            color<span class="op">=</span><span class="st">"red"</span>, alpha<span class="op">=</span><span class="fl">0.5</span>,</span>
+<span id="cb5-9"><a href=""></a>            jitter<span class="op">=</span><span class="fl">0.1</span>, size<span class="op">=</span><span class="dv">6</span>)</span>
+<span id="cb5-10"><a href=""></a>            <span class="co">## jitter: x값이 같은 데이터를 한 줄로 표시</span></span>
+<span id="cb5-11"><a href=""></a></span>
+<span id="cb5-12"><a href=""></a><span class="co"># 라벨 &amp; 스타일 설정</span></span>
+<span id="cb5-13"><a href=""></a>plt.xlabel(<span class="st">"Number of Engines"</span>)</span>
+<span id="cb5-14"><a href=""></a>plt.ylabel(<span class="st">"Seats"</span>)</span>
+<span id="cb5-15"><a href=""></a>plt.title(<span class="st">"Seats Distribution by Number of Engines"</span>)</span>
+<span id="cb5-16"><a href=""></a>plt.grid(axis<span class="op">=</span><span class="st">"y"</span>, linestyle<span class="op">=</span><span class="st">"--"</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb5-17"><a href=""></a></span>
+<span id="cb5-18"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:50%;">
-<div id="41761928" class="cell" data-execution_count="15">
+<div id="48ef0f06" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="ppt_files/figure-revealjs/cell-16-output-1.png" width="519" height="449"></p>
+<p><img data-src="seoyeon-new_files/figure-revealjs/cell-10-output-1.png" width="519" height="449"></p>
 </figure>
 </div>
 </div>
 </div>
 </div></div>
 </section>
-<section class="slide level2">
-
-<h3 data-background-image="assets/bg.png" id="박스-플롯-스캐터-플롯-해석하기">2️⃣-3​ 박스 플롯, 스캐터 플롯 해석하기</h3>
+<section id="박스플롯-스캐터플롯-해석" class="slide level2" data-background-image="assets/bg.png">
+<h2>2️⃣-3​ 박스플롯, 스캐터플롯 해석</h2>
 <div class="columns">
-<div class="column" style="margin-top: 15px;">
+<div class="column" style="margin-top: 0px;">
+<div id="2ddae181" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a>data[data[<span class="st">"engines"</span>] <span class="op">==</span> <span class="dv">3</span>][<span class="st">"seats"</span>].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="227">
+<pre><code>count      7.000000
+mean     169.285714
+std      196.169752
+min       12.000000
+25%       12.000000
+50%       12.000000
+75%      379.000000
+max      379.000000
+Name: seats, dtype: float64</code></pre>
+</div>
+</div>
 <ul>
-<li class="fragment"><p>엔진 3개 : 좌석 수 400명 넘는 항공기 vs 0~10명짜리 항공기 같이 존재</p>
-<ul>
-<li class="fragment">극단적인 차이!</li>
-</ul></li>
-<li class="fragment"><p>엔진 4개 : 처음 가설(엔진 수가 많을수록 좌석수가 많다)에 따르면 박스플롯이 위쪽에 분포해 있어야 되는데,</p>
-<p>박스플롯이 예상보다 아래쪽에 위치함 (좌석수의 중앙값과 대부분의 데이터가 0-100명에 집중됨)</p>
-<p>산점도를 보면 0-10명 규모, 100명 규모, 380명 규모에 몰려있음</p></li>
+<li class="fragment">데이터 개수가 너무 적어서 <br> 사분위수를 나누기 어려움</li>
+<li class="fragment">중앙값(50%)가 12명, <br> 75%는 379명, 평균은 169명</li>
+<li class="fragment">데이터가 극단적으로 나뉘어 있음 (12명 vs.&nbsp;379명)</li>
 </ul>
 </div><div class="column" style="width:50%;">
-<div id="fc54c55e" class="cell" data-execution_count="16">
+<div id="f0514190" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="ppt_files/figure-revealjs/cell-17-output-1.png" width="519" height="449"></p>
+<p><img data-src="seoyeon-new_files/figure-revealjs/cell-12-output-1.png" width="519" height="449"></p>
 </figure>
 </div>
 </div>
 </div>
 </div></div>
+</section>
+<section id="박스플롯-스캐터플롯-해석-1" class="slide level2" data-background-image="assets/bg.png">
+<h2>2️⃣-3​ 박스플롯, 스캐터플롯 해석</h2>
+<div class="columns">
+<div class="column" style="margin-top: 15px;">
+<div id="e8af3ed7" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a>data[data[<span class="st">"engines"</span>] <span class="op">==</span> <span class="dv">4</span>][<span class="st">"seats"</span>].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="229">
+<pre><code>count    144.000000
+mean      67.013889
+std      127.272791
+min        2.000000
+25%        2.000000
+50%        2.000000
+75%      102.000000
+max      450.000000
+Name: seats, dtype: float64</code></pre>
+</div>
+</div>
+<ul>
+<li class="fragment">박스가 예상보다 아래쪽에 위치해있음 (0~100명)</li>
+<li class="fragment">일부 이상치(378명, 450명)가 따로 표시됨</li>
+<li class="fragment">50%가 2명 항공기이고, 102명 항공기가 나머지 25% 차지</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div id="82285418" class="cell" data-execution_count="13">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="seoyeon-new_files/figure-revealjs/cell-14-output-1.png" width="519" height="449"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="왜-예상과-다를까" class="slide level2" data-background-image="assets/bg.png">
+<h2>3️⃣​ 왜 예상과 다를까?</h2>
+<div id="db5f3d0e" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a>data.loc[</span>
+<span id="cb10-2"><a href=""></a>    (data[<span class="st">'engines'</span>] <span class="op">&gt;=</span> <span class="dv">3</span>) <span class="op">&amp;</span> (data[<span class="st">'seats'</span>] <span class="op">&lt;=</span> <span class="dv">120</span>), </span>
+<span id="cb10-3"><a href=""></a>    [<span class="st">'engines'</span>, <span class="st">'manufacturer'</span>, <span class="st">'model'</span>, <span class="st">'seats'</span>]</span>
+<span id="cb10-4"><a href=""></a>].drop_duplicates(subset<span class="op">=</span>[<span class="st">'model'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="231">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">engines</th>
+<th data-quarto-table-cell-role="th">manufacturer</th>
+<th data-quarto-table-cell-role="th">model</th>
+<th data-quarto-table-cell-role="th">seats</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">3732</td>
+<td>4.0</td>
+<td>CANADAIR LTD</td>
+<td>CF-5D</td>
+<td>2.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">25294</td>
+<td>4.0</td>
+<td>DOUGLAS</td>
+<td>DC-7BF</td>
+<td>102.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">104175</td>
+<td>3.0</td>
+<td>AVIONS MARCEL DASSAULT</td>
+<td>MYSTERE FALCON 900</td>
+<td>12.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="왜-예상과-다를까-1" class="slide level2" data-background-image="assets/bg.png">
+<h2>3️⃣​ 왜 예상과 다를까?</h2>
+<div class="panel-tabset" style="font-size: 2px;">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">MYSTERE FALCON 900</a></li><li><a href="#tabset-1-2">CF-5D</a></li><li><a href="#tabset-1-3">DC-7BF</a></li></ul>
+<div class="tab-content" style="font-size: 2px;">
+<div id="tabset-1-1">
+<p><img data-src="falcon900.jpg" width="1000"></p>
+</div>
+<div id="tabset-1-2">
+<p><img data-src="cf5d.jpg" width="1000"></p>
+</div>
+<div id="tabset-1-3">
+<p><img data-src="dc7bf.jpg" width="900"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="엔진-개수와-좌석수의-관계-1" class="slide level2" data-background-image="assets/bg.png">
+<h2>💡 엔진 개수와 좌석수의 관계</h2>
+<h4 id="가설-엔진-개수가-많을수록-좌석수가-많아질-것이다-1">가설: 엔진 개수가 많을수록 좌석수가 많아질 것이다</h4>
+<h4 id="엔진-개수가-많다고-꼭-좌석이-많아지는-건-아니고-특수한-용도의-항공기-화물기-군용기-vip기-등가-존재">➡️ “엔진 개수가 많다고 꼭 좌석이 많아지는 건 아니고, <br> 특수한 용도의 항공기 (화물기, 군용기, VIP기 등)가 존재!”</h4>
 
 </section>
     </div>
@@ -602,19 +578,19 @@ Name: seats, dtype: float64</code></pre>
 </div></div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="ppt_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="seoyeon-new_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="ppt_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="ppt_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="ppt_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="ppt_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="ppt_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="seoyeon-new_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="seoyeon-new_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="seoyeon-new_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="seoyeon-new_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="seoyeon-new_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="ppt_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="ppt_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="ppt_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="ppt_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="seoyeon-new_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="seoyeon-new_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="seoyeon-new_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="seoyeon-new_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
